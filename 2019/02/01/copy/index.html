@@ -79,17 +79,17 @@
 
 
 
-<meta name="description" content="理解JavaScript数据类型 数据类型最新的ECMAScript 标准了七种数据类型,主要分为两大类 基本类型 和 引用类型  基本类型基本类型 也被称为值类型和原始类型.包括六种数据结类型,分别是:字符串类型(String) 数字类型(Number) 布尔类型(Boolean) 对空类型(Null) 未定义类型(Undefined)  符号类型(Symbol) 符号(Symbols)是ECM">
+<meta name="description" content="第一步:简单实现  深拷贝可以分为2步,浅拷贝 + 递归  ,浅拷贝时判断属性值是否是对象,如果是对象就进行递归操作,两个一结合就实现了深拷贝。  123456789fucntion cloneShadow()&amp;#123;     var  target = &amp;#123;&amp;#125;;     for(var key in source) &amp;#123;         if(Object.pror">
 <meta property="og:type" content="article">
-<meta property="og:title" content="javascript数据类型">
-<meta property="og:url" content="http://yoursite.com/2019/01/31/promise/index.html">
+<meta property="og:title" content="JavaScript深拷贝">
+<meta property="og:url" content="http://yoursite.com/2019/02/01/copy/index.html">
 <meta property="og:site_name" content="Vanisher&#39;s Blog">
-<meta property="og:description" content="理解JavaScript数据类型 数据类型最新的ECMAScript 标准了七种数据类型,主要分为两大类 基本类型 和 引用类型  基本类型基本类型 也被称为值类型和原始类型.包括六种数据结类型,分别是:字符串类型(String) 数字类型(Number) 布尔类型(Boolean) 对空类型(Null) 未定义类型(Undefined)  符号类型(Symbol) 符号(Symbols)是ECM">
+<meta property="og:description" content="第一步:简单实现  深拷贝可以分为2步,浅拷贝 + 递归  ,浅拷贝时判断属性值是否是对象,如果是对象就进行递归操作,两个一结合就实现了深拷贝。  123456789fucntion cloneShadow()&amp;#123;     var  target = &amp;#123;&amp;#125;;     for(var key in source) &amp;#123;         if(Object.pror">
 <meta property="og:locale" content="zh-Hands">
-<meta property="og:updated_time" content="2019-01-31T03:58:06.000Z">
+<meta property="og:updated_time" content="2019-02-01T09:27:59.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="javascript数据类型">
-<meta name="twitter:description" content="理解JavaScript数据类型 数据类型最新的ECMAScript 标准了七种数据类型,主要分为两大类 基本类型 和 引用类型  基本类型基本类型 也被称为值类型和原始类型.包括六种数据结类型,分别是:字符串类型(String) 数字类型(Number) 布尔类型(Boolean) 对空类型(Null) 未定义类型(Undefined)  符号类型(Symbol) 符号(Symbols)是ECM">
+<meta name="twitter:title" content="JavaScript深拷贝">
+<meta name="twitter:description" content="第一步:简单实现  深拷贝可以分为2步,浅拷贝 + 递归  ,浅拷贝时判断属性值是否是对象,如果是对象就进行递归操作,两个一结合就实现了深拷贝。  123456789fucntion cloneShadow()&amp;#123;     var  target = &amp;#123;&amp;#125;;     for(var key in source) &amp;#123;         if(Object.pror">
 
 
 
@@ -119,13 +119,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/01/31/promise/">
+  <link rel="canonical" href="http://yoursite.com/2019/02/01/copy/">
 
 
 
 
 
-  <title>javascript数据类型 | Vanisher's Blog</title>
+  <title>JavaScript深拷贝 | Vanisher's Blog</title>
   
 
 
@@ -242,7 +242,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/01/31/promise/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/02/01/copy/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="vanisher">
@@ -259,7 +259,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">javascript数据类型</h1>
+          <h1 class="post-title" itemprop="name headline">JavaScript深拷贝</h1>
         
 
         <div class="post-meta">
@@ -271,8 +271,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-01-31T11:56:04+08:00">
-                2019-01-31
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-02-01T17:26:00+08:00">
+                2019-02-01
               </time>
             
 
@@ -309,58 +309,22 @@
       
 
       
-        <h2 id="理解JavaScript数据类型"><a href="#理解JavaScript数据类型" class="headerlink" title="理解JavaScript数据类型"></a>理解JavaScript数据类型</h2><blockquote>
-<p>数据类型<br>最新的ECMAScript 标准了七种数据类型,主要分为两大类 基本类型 和 引用类型</p>
-</blockquote>
-<h4 id="基本类型"><a href="#基本类型" class="headerlink" title="基本类型"></a>基本类型</h4><p><strong>基本类型</strong> 也被称为值类型和原始类型.包括六种数据结类型,分别是:字符串类型(String) 数字类型(Number) 布尔类型(Boolean) 对空类型(Null) 未定义类型(Undefined)  符号类型(Symbol)</p>
-<p>符号(Symbols)是ECMAScript 第六版定义的.符号类型是唯一并且是不可修改的,并且也可以是用来作为Object的key值.<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> obj = &#123;&#125;;</span><br><span class="line"><span class="keyword">let</span> symbol1 = <span class="built_in">Symbol</span>();  <span class="comment">//symbol</span></span><br><span class="line"><span class="keyword">let</span> symbol2 = <span class="built_in">Symbol</span>();  <span class="comment">//symbol</span></span><br><span class="line"></span><br><span class="line">symbol1 == symbol2;  <span class="comment">// false</span></span><br><span class="line">obj.symbol1 = <span class="string">'hello'</span></span><br><span class="line">obj[symbol1] = <span class="string">'world'</span></span><br><span class="line">conosle.log(obj.symbol1 + <span class="string">''</span> + obj[symbol1]); <span class="comment">//hello world</span></span><br></pre></td></tr></table></figure></p>
-<hr>
-<h4 id="引用类型"><a href="#引用类型" class="headerlink" title="引用类型"></a>引用类型</h4><p><strong>引用类型主要是指Object类型</strong></p>
+        <p>第一步:简单实现</p>
 <blockquote>
-<p>在计算机科学中,对象是指内存中可以被标识符引用的一块区域。</p>
+<p>深拷贝可以分为2步,浅拷贝 + 递归  ,浅拷贝时判断属性值是否是对象,如果是对象就进行递归操作,两个一结合就实现了深拷贝。</p>
 </blockquote>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> obj = &#123;&#125;;  <span class="comment">//对象字面量</span></span><br><span class="line"><span class="keyword">let</span> obj2 = <span class="keyword">new</span> <span class="built_in">Object</span>();   <span class="comment">//实例对象</span></span><br><span class="line"><span class="keyword">typeof</span> obj1;  <span class="comment">//objectt</span></span><br><span class="line"><span class="keyword">typeof</span> obj2;  <span class="comment">//object</span></span><br></pre></td></tr></table></figure>
-<h4 id="类型对比"><a href="#类型对比" class="headerlink" title="类型对比"></a>类型对比</h4><blockquote>
-<p>我们都知道javascript中有两大数据类型:基本类型和引用类型,其中基本类型主要是储存在栈内存中,而引用类型却是吧地址储存在栈内存中,把值储存在堆内存中,然后把栈内存中的地址指向堆内存中存储的值。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">fucntion cloneShadow()&#123;</span><br><span class="line">     <span class="keyword">var</span>  target = &#123;&#125;;</span><br><span class="line">     <span class="keyword">for</span>(<span class="keyword">var</span> key <span class="keyword">in</span> source) &#123;</span><br><span class="line">         <span class="keyword">if</span>(<span class="built_in">Object</span>.prorotype.hasOwnProperty.call(source,key))&#123;</span><br><span class="line">              target[key] = source[key];</span><br><span class="line">         &#125;</span><br><span class="line">     &#125;</span><br><span class="line">     <span class="keyword">return</span> target;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>//测试用例<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a  = &#123;</span><br><span class="line">   name:<span class="string">'muyiy'</span>,</span><br><span class="line">   book:&#123;</span><br><span class="line">       title:<span class="string">"You Don't Know JS"</span>,</span><br><span class="line">       price:<span class="string">'45'</span></span><br><span class="line">   &#125;,</span><br><span class="line">   a1:<span class="literal">undefined</span>,</span><br><span class="line">   a2:<span class="literal">null</span>,</span><br><span class="line">   a3:<span class="number">123</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> b = cloneShadow(a);</span><br><span class="line">a.name = <span class="string">"高级前端进阶"</span>;</span><br><span class="line">a.book.price = <span class="string">'55'</span>;</span><br><span class="line"><span class="built_in">console</span>.log(b);</span><br><span class="line"><span class="comment">//&#123;</span></span><br><span class="line"><span class="comment">//   name: 'muyiy',</span></span><br><span class="line"><span class="comment">//   book: &#123; title: 'You Don\'t Know JS', price: '55' &#125;,</span></span><br><span class="line"><span class="comment">//   a1: undefined,</span></span><br><span class="line"><span class="comment">//   a2: null,</span></span><br><span class="line"><span class="comment">//   a3: 123</span></span><br><span class="line"><span class="comment">// &#125;</span></span><br></pre></td></tr></table></figure></p>
+<blockquote>
+<p>上面代码是浅拷贝的实现,只要稍微改动下,加上是否是对象的判断并且在相应的位置使用递归就可以实现简单的浅拷贝</p>
 </blockquote>
-<table>
-<thead>
-<tr>
-<th>基本类型</th>
-<th>数据结构</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>基本类型</td>
-<td>数字 字符串 布尔 Null Undefined Symbol</td>
-</tr>
-<tr>
-<td>引用类型</td>
-<td>数组 对象 函数</td>
-</tr>
-</tbody>
-</table>
-<h3 id="什么是堆栈？"><a href="#什么是堆栈？" class="headerlink" title="什么是堆栈？"></a>什么是堆栈？</h3><blockquote>
-<p>堆栈是两种数据结构,是一种数据项按序排列的数据结构,只能在一端进行插入和删除操作,堆为队列优先,先进先出(FIFO)。栈为先进后出(FILO)。</p>
-</blockquote>
-<h3 id="堆和栈有啥区别"><a href="#堆和栈有啥区别" class="headerlink" title="堆和栈有啥区别?"></a>堆和栈有啥区别?</h3><ol>
-<li>空间分配<ul>
-<li>堆(操作系统)：一般由程序员分配释放,若程序员不释放,程序结束时可能由OS回收,分配方式类似于链表。PS:java中都是系统GC,程序员无法进行GC。</li>
-<li>栈(操作系统): 由操作系统自动分配和释放,放函数的参数值,局部变量等。操作方式与数据结构中的栈相类似。</li>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">cloneDeep1</span>(<span class="params">source</span>)</span>&#123;</span><br><span class="line">   <span class="keyword">var</span> target = &#123;&#125;;</span><br><span class="line">   <span class="keyword">for</span>(<span class="keyword">var</span> key <span class="keyword">in</span> source) &#123;</span><br><span class="line">       <span class="keyword">if</span>(<span class="built_in">Object</span>.prototype.hasOwnProperty.call(source,key))&#123;</span><br><span class="line">         <span class="keyword">if</span>(<span class="keyword">typeof</span> source[<span class="string">'key'</span>] === <span class="string">"object"</span>) &#123;</span><br><span class="line">                target[key] = cloneDeep1(source[key]);  <span class="comment">//注意这里 递归</span></span><br><span class="line">         &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                target[key] = source[key];</span><br><span class="line">         &#125;</span><br><span class="line">       &#125;</span><br><span class="line">   &#125;</span><br><span class="line">   <span class="keyword">return</span> target;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//使用上面的测试一下</span></span><br><span class="line"><span class="keyword">var</span> b = cloneDeep1(a);</span><br><span class="line"><span class="built_in">console</span>.log(b);</span><br><span class="line"><span class="comment">// &#123;</span></span><br><span class="line"><span class="comment">//   name: 'muyiy',</span></span><br><span class="line"><span class="comment">//   book: &#123; title: 'You Don\'t Know JS', price: '45' &#125;,</span></span><br><span class="line"><span class="comment">//   a1: undefined,</span></span><br><span class="line"><span class="comment">//   a2: &#123;&#125;,</span></span><br><span class="line"><span class="comment">//   a3: 123</span></span><br><span class="line"><span class="comment">// &#125;</span></span><br></pre></td></tr></table></figure>
+<p>一个简单的浅拷贝已经实现 但是还存在许多问题</p>
+<ul>
+<li>1、没有对传入参数进行校验，传入 null 时应该返回 null 而不是 {}</li>
+<li>2、对于对象的判断逻辑不严谨，因为 typeof null === ‘object’</li>
+<li>3、没有考虑数组的兼容</li>
 </ul>
-</li>
-<li>缓存方式<ul>
-<li>堆: 使用二级缓存,生命周期与虚拟机的GC算法有关(并不是引用为空就直接GC),调用速度相对较低</li>
-<li>栈: 使用一级缓存, 被调用时通常处于存储空间中,调用后立即被释放。</li>
-</ul>
-</li>
-<li>数据结构<ul>
-<li>堆 (数据结构) :类似于树结构,可以内比与堆排序</li>
-<li>栈 (数据结构) :先进后出 (FILO)</li>
-</ul>
-</li>
-</ol>
 
       
     </div>
@@ -385,8 +349,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/01/31/first/" rel="next" title="NodeJS">
-                <i class="fa fa-chevron-left"></i> NodeJS
+              <a href="/2019/01/31/for/" rel="next" title="for of 与 for in 遍历区别">
+                <i class="fa fa-chevron-left"></i> for of 与 for in 遍历区别
               </a>
             
           </div>
@@ -394,10 +358,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/01/31/d3/" rel="prev" title="D3 从入门到放弃">
-                D3 从入门到放弃 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -449,17 +409,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            Table of Contents
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            Overview
-          </li>
-        </ul>
-      
 
-      <section class="site-overview-wrap sidebar-panel">
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
             
@@ -519,22 +470,6 @@
         </div>
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#理解JavaScript数据类型"><span class="nav-number">1.</span> <span class="nav-text">理解JavaScript数据类型</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#基本类型"><span class="nav-number">1.0.1.</span> <span class="nav-text">基本类型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#引用类型"><span class="nav-number">1.0.2.</span> <span class="nav-text">引用类型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#类型对比"><span class="nav-number">1.0.3.</span> <span class="nav-text">类型对比</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#什么是堆栈？"><span class="nav-number">1.1.</span> <span class="nav-text">什么是堆栈？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#堆和栈有啥区别"><span class="nav-number">1.2.</span> <span class="nav-text">堆和栈有啥区别?</span></a></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       

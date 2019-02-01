@@ -242,6 +242,141 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/02/01/copy/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="vanisher">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://avatars2.githubusercontent.com/u/19483268?s=400&u=97869a443baab2820618a8a575cee677b80849c7&v=4">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Vanisher's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/02/01/copy/" itemprop="url">JavaScript深拷贝</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-02-01T17:26:00+08:00">
+                2019-02-01
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>第一步:简单实现</p>
+<blockquote>
+<p>深拷贝可以分为2步,浅拷贝 + 递归  ,浅拷贝时判断属性值是否是对象,如果是对象就进行递归操作,两个一结合就实现了深拷贝。</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">fucntion cloneShadow()&#123;</span><br><span class="line">     <span class="keyword">var</span>  target = &#123;&#125;;</span><br><span class="line">     <span class="keyword">for</span>(<span class="keyword">var</span> key <span class="keyword">in</span> source) &#123;</span><br><span class="line">         <span class="keyword">if</span>(<span class="built_in">Object</span>.prorotype.hasOwnProperty.call(source,key))&#123;</span><br><span class="line">              target[key] = source[key];</span><br><span class="line">         &#125;</span><br><span class="line">     &#125;</span><br><span class="line">     <span class="keyword">return</span> target;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>//测试用例<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a  = &#123;</span><br><span class="line">   name:<span class="string">'muyiy'</span>,</span><br><span class="line">   book:&#123;</span><br><span class="line">       title:<span class="string">"You Don't Know JS"</span>,</span><br><span class="line">       price:<span class="string">'45'</span></span><br><span class="line">   &#125;,</span><br><span class="line">   a1:<span class="literal">undefined</span>,</span><br><span class="line">   a2:<span class="literal">null</span>,</span><br><span class="line">   a3:<span class="number">123</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> b = cloneShadow(a);</span><br><span class="line">a.name = <span class="string">"高级前端进阶"</span>;</span><br><span class="line">a.book.price = <span class="string">'55'</span>;</span><br><span class="line"><span class="built_in">console</span>.log(b);</span><br><span class="line"><span class="comment">//&#123;</span></span><br><span class="line"><span class="comment">//   name: 'muyiy',</span></span><br><span class="line"><span class="comment">//   book: &#123; title: 'You Don\'t Know JS', price: '55' &#125;,</span></span><br><span class="line"><span class="comment">//   a1: undefined,</span></span><br><span class="line"><span class="comment">//   a2: null,</span></span><br><span class="line"><span class="comment">//   a3: 123</span></span><br><span class="line"><span class="comment">// &#125;</span></span><br></pre></td></tr></table></figure></p>
+<blockquote>
+<p>上面代码是浅拷贝的实现,只要稍微改动下,加上是否是对象的判断并且在相应的位置使用递归就可以实现简单的浅拷贝</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">cloneDeep1</span>(<span class="params">source</span>)</span>&#123;</span><br><span class="line">   <span class="keyword">var</span> target = &#123;&#125;;</span><br><span class="line">   <span class="keyword">for</span>(<span class="keyword">var</span> key <span class="keyword">in</span> source) &#123;</span><br><span class="line">       <span class="keyword">if</span>(<span class="built_in">Object</span>.prototype.hasOwnProperty.call(source,key))&#123;</span><br><span class="line">         <span class="keyword">if</span>(<span class="keyword">typeof</span> source[<span class="string">'key'</span>] === <span class="string">"object"</span>) &#123;</span><br><span class="line">                target[key] = cloneDeep1(source[key]);  <span class="comment">//注意这里 递归</span></span><br><span class="line">         &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                target[key] = source[key];</span><br><span class="line">         &#125;</span><br><span class="line">       &#125;</span><br><span class="line">   &#125;</span><br><span class="line">   <span class="keyword">return</span> target;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//使用上面的测试一下</span></span><br><span class="line"><span class="keyword">var</span> b = cloneDeep1(a);</span><br><span class="line"><span class="built_in">console</span>.log(b);</span><br><span class="line"><span class="comment">// &#123;</span></span><br><span class="line"><span class="comment">//   name: 'muyiy',</span></span><br><span class="line"><span class="comment">//   book: &#123; title: 'You Don\'t Know JS', price: '45' &#125;,</span></span><br><span class="line"><span class="comment">//   a1: undefined,</span></span><br><span class="line"><span class="comment">//   a2: &#123;&#125;,</span></span><br><span class="line"><span class="comment">//   a3: 123</span></span><br><span class="line"><span class="comment">// &#125;</span></span><br></pre></td></tr></table></figure>
+<p>一个简单的浅拷贝已经实现 但是还存在许多问题</p>
+<ul>
+<li>1、没有对传入参数进行校验，传入 null 时应该返回 null 而不是 {}</li>
+<li>2、对于对象的判断逻辑不严谨，因为 typeof null === ‘object’</li>
+<li>3、没有考虑数组的兼容</li>
+</ul>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/01/31/for/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
@@ -886,7 +1021,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-count">5</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
