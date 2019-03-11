@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="javascript,">
 
 
 
@@ -79,17 +79,20 @@
 
 
 
-<meta name="description" content="D3.js基础1.了解SVG图做图2.学习D3.js的语法3.学习D3.js的编程思路  语法123456789101112 //直接选择 -&amp;gt;并设置属性 d3.select(&quot;body&quot;).style(&quot;background-color&quot;,balck)//选择 -&amp;gt; 动态设置属性  d3.selectAll(&quot;p&quot;).style(&quot;color&quot;,function() &amp;#123;">
+<meta name="description" content="这里有三种方法去过滤数组中的重复元素,经过滤后数组的元素都具有唯一性,我最喜欢的方式是使用Set,它最简短和简单 123456789101112131415const array = [1,2,4,2,1,7,9,7];// 1:&quot;Set&quot;[...New Set(array)];// 2:&quot;filter&quot;array.filter((item,index) =&amp;gt; array.indexOf(">
+<meta name="keywords" content="javascript">
 <meta property="og:type" content="article">
-<meta property="og:title" content="D3 从入门到放弃">
-<meta property="og:url" content="http://yoursite.com/2019/01/31/d3/index.html">
+<meta property="og:title" content="怎么用es6去除数组重复元素">
+<meta property="og:url" content="http://yoursite.com/2019/03/11/怎么用es6去除数组重复元素/index.html">
 <meta property="og:site_name" content="Vanisher&#39;s Blog">
-<meta property="og:description" content="D3.js基础1.了解SVG图做图2.学习D3.js的语法3.学习D3.js的编程思路  语法123456789101112 //直接选择 -&amp;gt;并设置属性 d3.select(&quot;body&quot;).style(&quot;background-color&quot;,balck)//选择 -&amp;gt; 动态设置属性  d3.selectAll(&quot;p&quot;).style(&quot;color&quot;,function() &amp;#123;">
+<meta property="og:description" content="这里有三种方法去过滤数组中的重复元素,经过滤后数组的元素都具有唯一性,我最喜欢的方式是使用Set,它最简短和简单 123456789101112131415const array = [1,2,4,2,1,7,9,7];// 1:&quot;Set&quot;[...New Set(array)];// 2:&quot;filter&quot;array.filter((item,index) =&amp;gt; array.indexOf(">
 <meta property="og:locale" content="zh-Hands">
-<meta property="og:updated_time" content="2019-01-31T04:46:58.000Z">
+<meta property="og:image" content="http://yoursite.com/2019/03/11/怎么用es6去除数组重复元素/unique.png">
+<meta property="og:updated_time" content="2019-03-11T03:21:14.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="D3 从入门到放弃">
-<meta name="twitter:description" content="D3.js基础1.了解SVG图做图2.学习D3.js的语法3.学习D3.js的编程思路  语法123456789101112 //直接选择 -&amp;gt;并设置属性 d3.select(&quot;body&quot;).style(&quot;background-color&quot;,balck)//选择 -&amp;gt; 动态设置属性  d3.selectAll(&quot;p&quot;).style(&quot;color&quot;,function() &amp;#123;">
+<meta name="twitter:title" content="怎么用es6去除数组重复元素">
+<meta name="twitter:description" content="这里有三种方法去过滤数组中的重复元素,经过滤后数组的元素都具有唯一性,我最喜欢的方式是使用Set,它最简短和简单 123456789101112131415const array = [1,2,4,2,1,7,9,7];// 1:&quot;Set&quot;[...New Set(array)];// 2:&quot;filter&quot;array.filter((item,index) =&amp;gt; array.indexOf(">
+<meta name="twitter:image" content="http://yoursite.com/2019/03/11/怎么用es6去除数组重复元素/unique.png">
 
 
 
@@ -119,13 +122,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/01/31/d3/">
+  <link rel="canonical" href="http://yoursite.com/2019/03/11/怎么用es6去除数组重复元素/">
 
 
 
 
 
-  <title>D3 从入门到放弃 | Vanisher's Blog</title>
+  <title>怎么用es6去除数组重复元素 | Vanisher's Blog</title>
   
 
 
@@ -232,7 +235,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/01/31/d3/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/11/怎么用es6去除数组重复元素/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="vanisher">
@@ -249,7 +252,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">D3 从入门到放弃</h1>
+          <h1 class="post-title" itemprop="name headline">怎么用es6去除数组重复元素</h1>
         
 
         <div class="post-meta">
@@ -261,8 +264,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-01-31T12:46:37+08:00">
-                2019-01-31
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-11T11:17:45+08:00">
+                2019-03-11
               </time>
             
 
@@ -299,19 +302,22 @@
       
 
       
-        <hr>
+        <p><img src="/2019/03/11/怎么用es6去除数组重复元素/unique.png" alt="去重复"></p>
+<p>这里有三种方法去过滤数组中的重复元素,经过滤后数组的元素都具有唯一性,我最喜欢的方式是使用Set,它最简短和简单</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> array = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">4</span>,<span class="number">2</span>,<span class="number">1</span>,<span class="number">7</span>,<span class="number">9</span>,<span class="number">7</span>];</span><br><span class="line"></span><br><span class="line"><span class="comment">// 1:"Set"</span></span><br><span class="line">[...New <span class="built_in">Set</span>(array)];</span><br><span class="line"></span><br><span class="line"><span class="comment">// 2:"filter"</span></span><br><span class="line">array.filter(<span class="function">(<span class="params">item,index</span>) =&gt;</span> array.indexOf(item) === index)</span><br><span class="line"></span><br><span class="line"><span class="comment">//3: "Reduce"</span></span><br><span class="line">array.reduce(<span class="function">(<span class="params">unique,item</span>) =&gt;</span> &#123;</span><br><span class="line">    unique.includes[items] ? uniques : [...unique,item]</span><br><span class="line">&#125;,[])</span><br><span class="line"></span><br><span class="line"><span class="comment">//RESUlT</span></span><br><span class="line">[<span class="number">1</span>,<span class="number">2</span>,<span class="number">4</span>,<span class="number">7</span>,<span class="number">9</span>]</span><br></pre></td></tr></table></figure>
+<p>1.使用Set<br>首先来解释一下什么是Set</p>
 <blockquote>
-<p>D3.js基础<br>1.了解SVG图做图<br>2.学习D3.js的语法<br>3.学习D3.js的编程思路</p>
+<p>Set是ES6新的数据对象,在Set集合中只允许你储存独一的值不允许存在两个相同的值,所以当我们传入一个数组的时候Set会自动去除里面重复的元素</p>
 </blockquote>
-<h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"> <span class="comment">//直接选择 -&gt;并设置属性</span></span><br><span class="line"> d3.select(<span class="string">"body"</span>).style(<span class="string">"background-color"</span>,balck)</span><br><span class="line"></span><br><span class="line"><span class="comment">//选择 -&gt; 动态设置属性</span></span><br><span class="line">  d3.selectAll(<span class="string">"p"</span>).style(<span class="string">"color"</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">          <span class="keyword">return</span> <span class="string">"hsl("</span> + <span class="built_in">Math</span>.randow() * <span class="number">360</span> + <span class="string">",100%,50%)"</span>;</span><br><span class="line">  &#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">//选择 -&gt; 绑定数据 -&gt; 动态设置属性</span></span><br><span class="line">d3.selectAll(<span class="string">"p"</span>)</span><br><span class="line">  .data([<span class="number">4</span>,<span class="number">8</span>,<span class="number">15</span>,<span class="number">16</span>,<span class="number">24</span>,<span class="number">45</span>])</span><br><span class="line">     .style(<span class="string">"font-size"</span>,<span class="function"><span class="keyword">function</span>(<span class="params">d</span>) </span>&#123; <span class="keyword">return</span> d + <span class="string">'px'</span>; &#125;);</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>理解 Update ， Enter 和 Exit思路</p>
-</blockquote>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"> <span class="comment">//Update...</span></span><br><span class="line"> <span class="keyword">var</span> p = d3.select(<span class="string">"body"</span>) <span class="comment">//直接把数据绑定到Dom并输出,数组元素个数与p节点的个数一致就更新文本,如果不一致,就只更新现有的p节点文本,多余的数据会被保存起来,看下面会用到</span></span><br><span class="line">            .selectAll(<span class="string">"p"</span>)</span><br><span class="line">            .data([<span class="number">4</span>,<span class="number">8</span>,<span class="number">15</span>,<span class="number">16</span>,<span class="number">23</span>,<span class="number">42</span>])</span><br><span class="line">               .text(<span class="function"><span class="keyword">function</span>(<span class="params">d</span>) </span>&#123; <span class="keyword">return</span> d; &#125;);</span><br><span class="line"> <span class="comment">//Enter...[常用]    </span></span><br><span class="line"> p.enter().append(<span class="string">"p"</span>)  <span class="comment">//如果不一致,数组元素个数比p节点多,就插入p节点补足并相应更新文本</span></span><br><span class="line">       .text(<span class="function"><span class="keyword">function</span>(<span class="params">d</span>) </span>&#123;<span class="keyword">return</span> d;&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">//Exit...[常用]</span></span><br><span class="line">p.exit().remove();  <span class="comment">//如果不一致,数组元素比p节点少,就删除多余的p节点</span></span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>动画基本写法</p>
-</blockquote>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">d3.selectAll(<span class="string">"circle"</span>).transition() <span class="comment">//定义动画</span></span><br><span class="line">     .duration(<span class="number">750</span>) <span class="comment">//动画持续时间</span></span><br><span class="line">     .delay(<span class="function"><span class="keyword">function</span>(<span class="params">d,i</span>) </span>&#123; <span class="keyword">return</span> i * <span class="number">10</span> ;&#125;)  <span class="comment">//元素动画要延长多少时间开始</span></span><br><span class="line">     .attr(<span class="string">"r"</span>,<span class="function"><span class="keyword">function</span>(<span class="params">d</span>) </span>&#123; <span class="keyword">return</span> <span class="built_in">Math</span>.sqrt(d * scale);&#125;) <span class="comment">//设置最后效果</span></span><br></pre></td></tr></table></figure>
+<p>好了,让我们回到代码中,分解下到底发生了什么,首先我们创建一个Set并且传入array，因为Set中不允许存在重复的值,数组中重复的元素会被remove掉,然后我们将经过Set处理后的值转换成新的数组通过对象展开运算符…</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> array = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">4</span>,<span class="number">2</span>,<span class="number">1</span>,<span class="number">7</span>,<span class="number">9</span>,<span class="number">7</span>];</span><br><span class="line"><span class="comment">//step 1</span></span><br><span class="line"><span class="keyword">const</span> uniqueSet = <span class="keyword">new</span> <span class="built_in">Set</span>(array);</span><br><span class="line"><span class="comment">//step 2</span></span><br><span class="line"><span class="keyword">const</span> backToArray = [...uniqueSet];</span><br><span class="line"><span class="comment">//[1,2,4,7,9]</span></span><br></pre></td></tr></table></figure>
+<p>我们同样可以将Set转换成Array用 Array.from()方法<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> array = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">4</span>,<span class="number">2</span>,<span class="number">1</span>,<span class="number">7</span>,<span class="number">9</span>,<span class="number">7</span>];</span><br><span class="line"><span class="built_in">Array</span>.from(<span class="keyword">new</span> <span class="built_in">Set</span>(array));</span><br><span class="line"><span class="comment">//[1,2,4,7,9]</span></span><br></pre></td></tr></table></figure></p>
+<p>2.使用filter过滤<br>  为了去理解这里的选项,让我们看下这两个方法到底在做什么: indexOf 和 filter</p>
+<h4 id="indexOf"><a href="#indexOf" class="headerlink" title="indexOf()"></a>indexOf()</h4><p>  indexOf方法通常用来返回元素第一次出现的索引位置<br>  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> array = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">4</span>,<span class="number">2</span>,<span class="number">1</span>,<span class="number">7</span>,<span class="number">9</span>,<span class="number">7</span>];</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">array.indexOf(<span class="number">1</span>);  <span class="comment">//0</span></span><br><span class="line">array.indexOf(<span class="number">2</span>);  <span class="comment">//1</span></span><br><span class="line">array.indexOf(<span class="number">4</span>);  <span class="comment">//2</span></span><br><span class="line">array.indexOf(<span class="number">7</span>);  <span class="comment">//5</span></span><br></pre></td></tr></table></figure></p>
+<h5 id="filter"><a href="#filter" class="headerlink" title="filter"></a>filter</h5><p>   filter方法根据我们的条件去创建一个新的数组,换句话说传入的元素如果满足条件就会被包含在过滤后的数组中,反之不满足条件的将不会被included</p>
+   <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> array = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">4</span>,<span class="number">2</span>,<span class="number">1</span>,<span class="number">7</span>,<span class="number">9</span>,<span class="number">7</span>];</span><br><span class="line">   array.filter(<span class="function">(<span class="params">item,index</span>) =&gt;</span> array.indexOf(item) === index)</span><br></pre></td></tr></table></figure>
+<p>   3.使用reduce()<br>     reduce方法通常被用于将数组内的多个元素进行combine操作,最终的结果是根据我们传入的reducer函数决定的</p>
+  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">array.reduce(<span class="function">(<span class="params">unique,item</span>) =&gt;</span> &#123;</span><br><span class="line">   unique.includes[items] ? uniques : [...unique,item]</span><br><span class="line">  &#125;,[])</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -327,6 +333,12 @@
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/javascript/" rel="tag"># javascript</a>
+          
+        </div>
+      
 
       
       
@@ -336,8 +348,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/01/31/promise/" rel="next" title="javascript数据类型">
-                <i class="fa fa-chevron-left"></i> javascript数据类型
+              <a href="/2019/03/07/NodeJS + Express + Mongo 构建API/" rel="next" title="NodeJS + Express + MongoDB 构建API">
+                <i class="fa fa-chevron-left"></i> NodeJS + Express + MongoDB 构建API
               </a>
             
           </div>
@@ -345,10 +357,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/01/31/for/" rel="prev" title="for of 与 for in 遍历区别">
-                for of 与 for in 遍历区别 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -489,7 +497,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#语法"><span class="nav-number">1.</span> <span class="nav-text">语法</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#indexOf"><span class="nav-number">1.</span> <span class="nav-text">indexOf()</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#filter"><span class="nav-number">1.1.</span> <span class="nav-text">filter</span></a></li></ol></li></ol></div>
             
 
           </div>

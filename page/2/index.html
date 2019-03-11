@@ -232,6 +232,138 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/01/31/d3/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="vanisher">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://avatars2.githubusercontent.com/u/19483268?s=400&u=97869a443baab2820618a8a575cee677b80849c7&v=4">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Vanisher's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/01/31/d3/" itemprop="url">D3 从入门到放弃</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-01-31T12:46:37+08:00">
+                2019-01-31
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <hr>
+<blockquote>
+<p>D3.js基础<br>1.了解SVG图做图<br>2.学习D3.js的语法<br>3.学习D3.js的编程思路</p>
+</blockquote>
+<h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"> <span class="comment">//直接选择 -&gt;并设置属性</span></span><br><span class="line"> d3.select(<span class="string">"body"</span>).style(<span class="string">"background-color"</span>,balck)</span><br><span class="line"></span><br><span class="line"><span class="comment">//选择 -&gt; 动态设置属性</span></span><br><span class="line">  d3.selectAll(<span class="string">"p"</span>).style(<span class="string">"color"</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">          <span class="keyword">return</span> <span class="string">"hsl("</span> + <span class="built_in">Math</span>.randow() * <span class="number">360</span> + <span class="string">",100%,50%)"</span>;</span><br><span class="line">  &#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">//选择 -&gt; 绑定数据 -&gt; 动态设置属性</span></span><br><span class="line">d3.selectAll(<span class="string">"p"</span>)</span><br><span class="line">  .data([<span class="number">4</span>,<span class="number">8</span>,<span class="number">15</span>,<span class="number">16</span>,<span class="number">24</span>,<span class="number">45</span>])</span><br><span class="line">     .style(<span class="string">"font-size"</span>,<span class="function"><span class="keyword">function</span>(<span class="params">d</span>) </span>&#123; <span class="keyword">return</span> d + <span class="string">'px'</span>; &#125;);</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>理解 Update ， Enter 和 Exit思路</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"> <span class="comment">//Update...</span></span><br><span class="line"> <span class="keyword">var</span> p = d3.select(<span class="string">"body"</span>) <span class="comment">//直接把数据绑定到Dom并输出,数组元素个数与p节点的个数一致就更新文本,如果不一致,就只更新现有的p节点文本,多余的数据会被保存起来,看下面会用到</span></span><br><span class="line">            .selectAll(<span class="string">"p"</span>)</span><br><span class="line">            .data([<span class="number">4</span>,<span class="number">8</span>,<span class="number">15</span>,<span class="number">16</span>,<span class="number">23</span>,<span class="number">42</span>])</span><br><span class="line">               .text(<span class="function"><span class="keyword">function</span>(<span class="params">d</span>) </span>&#123; <span class="keyword">return</span> d; &#125;);</span><br><span class="line"> <span class="comment">//Enter...[常用]    </span></span><br><span class="line"> p.enter().append(<span class="string">"p"</span>)  <span class="comment">//如果不一致,数组元素个数比p节点多,就插入p节点补足并相应更新文本</span></span><br><span class="line">       .text(<span class="function"><span class="keyword">function</span>(<span class="params">d</span>) </span>&#123;<span class="keyword">return</span> d;&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">//Exit...[常用]</span></span><br><span class="line">p.exit().remove();  <span class="comment">//如果不一致,数组元素比p节点少,就删除多余的p节点</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>动画基本写法</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">d3.selectAll(<span class="string">"circle"</span>).transition() <span class="comment">//定义动画</span></span><br><span class="line">     .duration(<span class="number">750</span>) <span class="comment">//动画持续时间</span></span><br><span class="line">     .delay(<span class="function"><span class="keyword">function</span>(<span class="params">d,i</span>) </span>&#123; <span class="keyword">return</span> i * <span class="number">10</span> ;&#125;)  <span class="comment">//元素动画要延长多少时间开始</span></span><br><span class="line">     .attr(<span class="string">"r"</span>,<span class="function"><span class="keyword">function</span>(<span class="params">d</span>) </span>&#123; <span class="keyword">return</span> <span class="built_in">Math</span>.sqrt(d * scale);&#125;) <span class="comment">//设置最后效果</span></span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/01/31/promise/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
@@ -628,7 +760,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-count">9</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -636,6 +768,15 @@
 
             
 
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-name">tags</span>
+                
+              </div>
             
 
           </nav>
